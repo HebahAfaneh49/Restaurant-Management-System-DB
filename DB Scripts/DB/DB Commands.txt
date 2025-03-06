@@ -1,0 +1,23 @@
+DB Commands that mostly used in this system:
+
+Create Database [DB Name];
+
+Create Table [Table Name];
+
+Insert into Table values (...);
+
+Update;
+
+Set;
+
+Order by;
+
+Group By;
+
+Select;
+
+Join;
+
+Create view;
+
+Create Procedure;

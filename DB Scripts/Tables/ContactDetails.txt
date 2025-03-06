@@ -1,0 +1,18 @@
+CREATE TABLE ContactDetails(
+ContactId INT PRIMARY KEY IDENTITY(1,1),
+PhoneNumber1 VARCHAR(10) CHECK (PhoneNumber1 LIKE '07%') NOT NULL, 
+PhoneNumber2 VARCHAR(10) CHECK (PhoneNumber2 LIKE '07%'), 
+[Address] VARCHAR(MAX) NOT NULL,
+CityId INT NOT NULL,
+NationalityId INT NOT NULL,
+FacebookLink VARCHAR(MAX), 
+WhatsappLink VARCHAR(MAX),
+CreateBy VARCHAR(MAX) NOT NULL, 
+UpdateBy VARCHAR(MAX), 
+IsActive BIT DEFAULT 1, 
+UpdateDate DATE, 
+CreationDate DATE DEFAULT GETDATE(),
+FOREIGN KEY (CityId) REFERENCES LookupItems(LookupItemID),
+FOREIGN KEY (NationalityId) REFERENCES LookupItems(LookupItemID),
+CONSTRAINT Unique_Table_ContactDetails UNIQUE (PhoneNumber1)
+);

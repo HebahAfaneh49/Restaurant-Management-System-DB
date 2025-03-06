@@ -1,0 +1,15 @@
+CREATE TABLE Orders (
+OrderID INT PRIMARY KEY IDENTITY(1,1),
+CustomerID INT NULL,
+TableID INT,
+OrderDate DATETIME DEFAULT GETDATE(),
+Status VARCHAR(50) CHECK (Status IN ('Pending', 'Completed', 'Cancelled')) DEFAULT 'Pending',
+TotalAmount DECIMAL(10,2) DEFAULT 0,
+CreateBy VARCHAR(MAX) NOT NULL, 
+UpdateBy VARCHAR(MAX), 
+IsActive BIT DEFAULT 1, 
+UpdateDate DATE, 
+CreationDate DATE DEFAULT GETDATE(),
+FOREIGN KEY (CustomerID) REFERENCES Person(PersonId) ON DELETE SET NULL,
+FOREIGN KEY (TableID) REFERENCES Tables(TableID) ON DELETE CASCADE
+);

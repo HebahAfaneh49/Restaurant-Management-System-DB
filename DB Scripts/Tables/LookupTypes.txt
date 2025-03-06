@@ -1,0 +1,4 @@
+CREATE TABLE LookupTypes (
+LookupTypeID INT PRIMARY KEY IDENTITY(1,1),
+[Name] VARCHAR(100) NOT NULL,  -- Name of the lookup type, e.g., "PersonRole"(Admin, Staff, Customer), "City", "Nationality", "Category"
+);

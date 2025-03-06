@@ -1,0 +1,4 @@
+CREATE TABLE Tables (
+TableID INT PRIMARY KEY IDENTITY(1,1),
+Capacity INT CHECK (Capacity > 0) NOT NULL
+);

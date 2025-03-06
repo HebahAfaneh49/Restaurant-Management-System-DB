@@ -1,0 +1,21 @@
+CREATE TABLE Person (
+PersonId INT PRIMARY KEY IDENTITY(1,1),
+ContactDetailsId INT NOT NULL,
+PersonRoleID INT NOT NULL,
+CreateBy VARCHAR(MAX) NOT NULL, 
+UpdateBy VARCHAR(MAX), 
+IsActive BIT DEFAULT 1, 
+UpdateDate DATE, 
+CreationDate DATE DEFAULT GETDATE(),
+Fullname VARCHAR(MAX) NOT NULL, 
+Email VARCHAR(200) CHECK (Email LIKE '%@%.%') NOT NULL, 
+[Password] VARCHAR(16) NOT NULL,
+Bio VARCHAR(MAX), 
+[Image] VARCHAR(MAX),
+[Role] VARCHAR(50), 
+ShiftTiming DATE, 
+Attendance VARCHAR(50),
+FOREIGN KEY (ContactDetailsId) REFERENCES ContactDetails(ContactId) ON DELETE CASCADE,
+FOREIGN KEY (PersonRoleID) REFERENCES LookupItems(LookupItemID) ON DELETE CASCADE,
+CONSTRAINT Unique_Table_Person UNIQUE (ContactDetailsId, Email, [Password])
+);
